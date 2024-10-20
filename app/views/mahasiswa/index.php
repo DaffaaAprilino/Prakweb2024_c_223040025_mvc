@@ -1,14 +1,30 @@
 <div class="container mt-3">
-<div class="row">
+    <div class="row">
         <div class="col-lg-6">
             <?php Flasher::flash(); ?>
         </div>
     </div>
-    <div class="row">
-        <div class="col-6">
-            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#formModal">
+    <div class="row mb-3">
+        <div class="col-lg-6">
+            <button type="button" class="btn btn-primary mb-3 tombolTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
                 Tambah Data Mahasiswa
             </button>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-lg-6">
+            <form action="<?= BASEURL; ?>/mahasiswa/cari" method="POST">
+                <div class="input-group ">
+                    <input type="text" class="form-control" placeholder="Cari mahasiswa" aria-label="Cari mahasiswa" aria-describedby="button-addon2" name="keyword" id="keyword" autocomplete="off">
+                    <button class="btn btn-outline-primary" type="submit" id="tombolCari">Cari</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+
             <h3>Daftar Mahasiswa</h3>
             <ul class="list-group">
                 <?php foreach ($data['mhs'] as $mhs) : ?>
@@ -29,19 +45,19 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="judulModal">Tambah Data Mahasiswa</h1>
+                <h1 class="modal-title fs-5" id="judulModalLabel">Tambah Data Mahasiswa</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="POST">
-                    <input type="hidden" name="id" id="id">    
+                    <input type="hidden" name="id" id="id">
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama</label>
                         <input type="text" class="form-control" id="nama" name="nama">
                     </div>
 
                     <div class="mb-3">
-                        <label for="nrp" class="form-label">NRP</label>
+                        <label for="nrp" class="form-label">nrp</label>
                         <input type="number" class="form-control" id="nrp" name="nrp">
                     </div>
 
@@ -53,10 +69,10 @@
                     <label for="jurusan">Jurusan</label>
                     <select class="form-select" aria-label="jurusan" name="jurusan">
 
-                        <option value="Teknik Informatika">Teknik Informatika</option>
-                        <option value="Teknik Mesin">Teknik Inggris</option>
-                        <option value="Teknik Pangan">Teknik Elektro</option>
-                        <option value="Teknik Industri">Teknik Mesin</option>
+                    <option value="Teknik Informatika">Teknik Informatika</option> 
+                    <option value="Teknik Mesin">Teknik Inggris</option> 
+                    <option value="Teknik Pangan">Teknik Elektro</option> 
+                    <option value="Teknik Industri">Teknik Mesin</option>
 
                     </select>
             </div>
