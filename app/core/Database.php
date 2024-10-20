@@ -68,4 +68,11 @@ class Database
         $this->execute();
         return $this->smt->fetch(PDO::FETCH_ASSOC);
     }
+
+    // punya kiya
+    public function rowCount()
+    {
+        // punyanya PDO
+        return $this->smt->rowCount();
+    }
 }
