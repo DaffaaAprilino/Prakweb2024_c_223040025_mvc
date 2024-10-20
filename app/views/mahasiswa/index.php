@@ -14,6 +14,7 @@
                 <?php foreach ($data['mhs'] as $mhs) : ?>
                     <li class="list-group-item "><?= $mhs['nama']; ?>
                         <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge rounded-pill text-bg-danger text-decoration-none float-end me-1" onclick="return confirm('Yakin?')">Hapus</a>
+                        <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['id']; ?>" class="badge rounded-pill text-bg-warning text-decoration-none float-end me-1 tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $mhs['id']; ?>">Edit</a>
                         <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>" class="badge rounded-pill text-bg-primary text-decoration-none float-end me-1">Detail</a>
                     </li>
                 <?php endforeach; ?>
@@ -33,6 +34,7 @@
             </div>
             <div class="modal-body">
                 <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="POST">
+                    <input type="hidden" name="id" id="id">    
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama</label>
                         <input type="text" class="form-control" id="nama" name="nama">
